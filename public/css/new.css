@@ -1,0 +1,28 @@
+body {
+    color: antiquewhite;
+    background-color: black;
+}
+
+#newcard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inp {
+    width: 360px;
+    margin: 10px;
+
+}
+
+button {
+    width: 50px;
+}

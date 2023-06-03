@@ -1,0 +1,26 @@
+body {
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#logincard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+    width: 400px;
+
+}
+
+button {
+    width: 250px;
+    border-radius: 20px;
+    height: 50px;
+    background-color: aqua;
+
+}

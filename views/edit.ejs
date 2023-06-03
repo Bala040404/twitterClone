@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/edit.css">
+</head>
+
+<body>
+    <div id="newcard">
+        <h1>twitter</h1>
+
+        <form id="main" action="/twitter/<%= tweet._id %>?_method=PATCH" method="POST" enctype="multipart/form-data">
+            <div class="inp">
+                <label for="tweet">the tweet </label>
+                <input type="text" name="tweet" id="tweet" value="<%= tweet.tweet %>">
+            </div>
+
+
+            <div class="inp">
+                <input type="file" name="img" id="img" value="<%= tweet.img %>">
+            </div>
+            <button>submit</button>
+        </form>
+
+    </div>
+    <form action="/twitter/<%= tweet._id %>?_method=DELETE" method="post">
+        <button>delete</button>
+    </form>
+
+
+
+</body>
+
+</html>
