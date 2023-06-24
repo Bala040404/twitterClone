@@ -6,20 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 
 <body>
 
-    <h2>login</h2>
-    <form action="/twitter/login" method="post">
-        <label for="name">enter the username</label>
-        <input type="text" name="username" id="name">
-
-        <label for="password">enter the password</label>
-        <input type="password" name="password" id="password">
-
-        <button>submit</button>
-    </form>
+    <div id="main">
+        <div>
+            <h2>login</h2>
+        </div>
+        <div>
+            <form action="/twitter/login" method="post">
+                <div>
+                    <label for="name">enter the username</label>
+                    <input type="text" name="username" id="name">
+                </div>
+                <div>
+                    <label for="password">enter the password</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <div>
+                    <button>submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>

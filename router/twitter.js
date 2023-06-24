@@ -3,7 +3,7 @@ if (process.env.NODE_ENV !== "productions") {
 }
 
 const express = require('express')
-
+var mongoose = require('mongoose');
 const passport = require('passport')
 const router = express.Router()
 const { User } = require('../schemas/user.js')
@@ -56,22 +56,37 @@ router.post('/', upload.single("img"), async (req, res) => {
     res.redirect('/twitter')
 })
 router.get('/find', async (req, res) => {
-    const id = req.user._id
+    const id = req.user._id//logged in users id
     const users = await User.find()
     const cur_user = await User.findOne({ _id: id });
     const cur_user_age = cur_user.age
 
 
-
-    res.render('find.ejs', { id, users, cur_user_age })
+    res.render('find.ejs', { id, users, cur_user, cur_user_age })
 })
 router.get("/follow/:id", async (req, res) => {
-    const { id } = req.params
-    await User.updateOne({ _id: req.user._id }, {
-        $push: {
-            followers: id
-        }
-    })
+    const { id } = req.params//the id of  guy you want to follow
+    const cur_id = req.user._id//ur id
+    const cur_user = await User.findOne({ _id: cur_id });
+    console.log(id)
+    console.log(cur_user.followers)
+
+    const objectId = new mongoose.Types.ObjectId(id);
+    if (cur_user.followers.includes(objectId)) {
+        await User.updateOne({ _id: req.user._id }, {
+            $pull: {
+                followers: objectId
+            }
+        })
+
+    } else {
+
+        await User.updateOne({ _id: req.user._id }, {
+            $push: {
+                followers: id
+            }
+        })
+    }
     res.redirect('/twitter')
 
 })

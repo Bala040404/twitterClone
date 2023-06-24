@@ -15,11 +15,19 @@
         <% if ( Math.abs(user.age - cur_user_age) < 2 ) { %>
 
             <% if(id!=user.id){ %>
-                <h1>
-                    <a href="/twitter/follow/<%= user._id %>">
+                <form action="/twitter/follow/<%= user._id %>">
+
+                    <h1>
                         <%= user.username %>
-                    </a>
-                </h1>
+                    </h1>
+                    <% if (cur_user.followers.includes(user.id)){ %>
+                        <button>following</button>
+                        <% }else{ %>
+                            <button>follow</button>
+                            <% } %>
+
+                </form>
+
                 <% } %>
                     <% } %>
                         <% } %>
